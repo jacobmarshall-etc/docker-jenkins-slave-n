@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node
 MAINTAINER Jacob Marshall <jacob@manage.net.nz>
 
 ENV JENKINS_USERNAME jenkins
@@ -17,7 +17,6 @@ RUN mkdir /var/run/sshd && \
 
 RUN npm install -g n
 
-ENV CI=true
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-D"]
