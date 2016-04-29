@@ -13,7 +13,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /var/run/sshd && \
-    useradd -m -s /bin/bash -p $(openssl passwd -1 $JENKINS_PASSWORD) $JENKINS_USERNAME
+    useradd -m -s /bin/bash -p $(openssl passwd -1 $JENKINS_PASSWORD) $JENKINS_USERNAME && \
+    adduser $JENKINS_USERNAME sudo
 
 RUN npm install -g n
 
